@@ -69,3 +69,10 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - **SOURCE**: os pinos 2 e 3 não mudam ao girar o SOURCE (agora deram acima de 12 kΩ, parados). O SOURCE não está
   nesses pinos; pode estar em outro pino ou vir por outro cabo (as plaquinhas dos botões giratórios têm fios
   próprios até a placa principal).
+- O botão de VOLUME gira sem fim, sem cliques e sem batente. Com o VOL ▲▼ do controle remoto ele **não gira**: só o
+  display muda os dB. Então não é motorizado: é um **potenciômetro sem fim** (tipo usado em sintetizadores), lido
+  pelo microcontrolador, e o volume de verdade é digital (o microcontrolador ajusta um chip de volume). Esse tipo de
+  potenciômetro costuma ter **dois cursores** defasados, para saber o sentido: o **pino 10** (mesmo valor do 11, 5,5
+  kΩ) é o candidato ao segundo. Conferir girando com a ponta no pino 10.
+- Para o Pico: comandar o volume pelo código do controle remoto por fio é o caminho simples. Imitar o potenciômetro
+  sem fim (duas tensões analógicas) é possível, mas desnecessário.
