@@ -12,29 +12,29 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 
 ## Tabela do flat
 
-| Pino | GND? (amp fora da tomada) | Ligado a | Standby (V) | Ligado (V) | Observação |
-|---|---|---|---|---|---|
-| 1 | não | | | | |
-| 2 | não | | | | |
-| 3 | não | | | | |
-| 4 | não | | | | |
-| 5 | **sim** | | | | |
-| 6 | não | | | | |
-| 7 | não | | | | |
-| 8 | não | | | | |
-| 9 | não | | | | |
-| 10 | não | | | | |
-| 11 | não | | | | |
-| 12 | não | | | | |
-| 13 | não | | | | |
-| 14 | não | | | | |
-| 15 | não | | | | |
-| 16 | não | | | | |
-| 17 | **sim** | | | | |
-| 18 | não | | | | |
-| 19 | **sim** | | | | |
-| 20 | **sim** | | | | |
-| 21 | não | | | | |
+| Pino | GND? (bip) | kΩ até GND | Ligado a | Standby (V) | Ligado (V) | Observação |
+|---|---|---|---|---|---|---|
+| 1 | não | 13,53 | | | | |
+| 2 | não | 8,62 | | | | |
+| 3 | não | 8,62 | | | | |
+| 4 | não | 6,98 | | | | |
+| 5 | **sim** | 0 | | | | |
+| 6 | não | 0 (?) | | | | |
+| 7 | não | 3,00 | | | | |
+| 8 | não | 6,0 | | | | |
+| 9 | não | 10,45 | | | | |
+| 10 | não | 5,5 | | | | |
+| 11 | não | 5,5 | | | | |
+| 12 | não | 8,74 | | | | |
+| 13 | não | 0,1 | | | | |
+| 14 | não | 8,74 | | | | |
+| 15 | não | 10,42 | | | | |
+| 16 | não | 8,74 | | | | |
+| 17 | **sim** | 0 | | | | |
+| 18 | não | 3,66 | | | | |
+| 19 | **sim** | 0 | | | | |
+| 20 | **sim** | 0 | | | | |
+| 21 | não | 8,74 | | | | |
 
 ## Registro
 
@@ -45,3 +45,18 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 - O bip dos 4 é contínuo: são GND de verdade, não capacitor carregando.
 - Os pinos 5, 17, 19 e 20 bipam entre si (esperado: são todos GND).
 - Entre os outros 17 pinos (1–4, 6–16, 18, 21), nenhum par bipa. Então o filamento do VFD não passa pelo flat: deve vir direto pelos fios amarelos do transformador para a placa do display.
+
+### 2026-11-07, amp fora da tomada, resistência até o GND
+
+Ponta preta no PHONO GROUND, multímetro em Ω (valores em kΩ, a confirmar). Valores na tabela acima. São medidas com
+tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, não como valor exato.
+
+- **Pino 6 deu 0, mas não bipou com o GND antes.** Conferir.
+- Pino 13: 0,1 kΩ (100 Ω), bem mais baixo que os outros: candidato a alimentação ou a um LED.
+- Pinos 7 (3,00) e 18 (3,66): mais baixos que os de sinal: candidatos a alimentação (5 V, 3,3 V).
+- Grupos de valores iguais (circuitos parecidos):
+  - 2 e 3: 8,62
+  - 10 e 11: 5,5 (par: pode ser um encoder, A e B)
+  - 9 e 15: 10,4
+  - 12, 14, 16 e 21: 8,74 (quatro iguais: botões ou dados)
+- Sozinhos: 1 (13,53), 4 (6,98), 8 (6,0).
