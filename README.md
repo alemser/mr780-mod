@@ -35,6 +35,7 @@ Tudo isto está detalhado em `docs/plano.md`.
 |---|---|
 | [`docs/plano.md`](docs/plano.md) | O plano, passo a passo, e as perguntas que as primeiras medições precisam responder |
 | [`docs/pesquisa-display.md`](docs/pesquisa-display.md) | O que se sabe do MR 780 pela web, pelo manual e pelas fotos: display, placas, botões, controle remoto |
+| [`docs/medicoes.md`](docs/medicoes.md) | Todas as leituras do multímetro, com a tabela das 21 vias do cabo flat |
 | [`docs/historico/brief-2026-10.md`](docs/historico/brief-2026-10.md) | O brief de 2026-10-28 a 30: primeiras fotos, medidas do cabo flat e as decisões das fases. Não descreve o estado atual |
 
 O manual oficial fica só na cópia local, em `docs/manual/` (tem direitos autorais, não vai para o GitHub).
