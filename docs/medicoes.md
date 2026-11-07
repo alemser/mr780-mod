@@ -143,3 +143,4 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - **Perninha 1** (a da esquerda, contando da esquerda para a direita como o dono estava olhando) **bipa com o pino 21**.
   O pino 21 tinha 8,74 kΩ até o GND e não mudava com nenhum botão: combina com a saída (sinal) de um receptor de IR,
   que fica parada em nível alto. Candidato forte: **pino 21 = sinal do controle remoto**.
+- **Perninha 3** (a da direita), em Ω: pinos **1 a 3** e **7 a 17**: sem valor (aberto). Faltam os pinos 4, 6, 18 e 21.
