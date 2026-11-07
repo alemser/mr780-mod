@@ -24,12 +24,12 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | |
-| 11 | não | 5,5 | | | | Cursor do VOLUME (varia 5–10 kΩ ao girar) |
-| 12 | não | 8,74 | | | | Botão DIRECT |
+| 11 | não | 5,5 | | | | VOLUME, primeiro cursor (varia 5–10 kΩ ao girar) |
+| 12 | não | 8,74 | | | | Botão DIRECT (vai a ~0 apertado) |
 | 13 | não | 0,1 | | | | |
-| 14 | não | 8,74 | | | | |
-| 15 | não | 10,42 | | | | SOURCE (muda ao girar) |
-| 16 | não | 8,74 | | | | |
+| 14 | não | 8,74 | | | | VOLUME, segundo cursor |
+| 15 | não | 10,42 | | | | SOURCE, contato A |
+| 16 | não | 8,74 | | | | SOURCE, contato B |
 | 17 | **sim** | 0 | | | | |
 | 18 | não | 3,66 | | | | |
 | 19 | **sim** | 0 | | | | |
@@ -92,3 +92,10 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 ### 2026-11-07, amp fora da tomada, apertando os botões (Ω até o GND)
 
 - **Pino 12**: só o **DIRECT** (botão no extremo direito, acima do painel) muda o valor. Os outros botões não.
+- O DIRECT leva o pino 12 para um valor **perto de 0**: o botão liga o pino ao GND. Para o Pico "apertar", basta
+  puxar o pino 12 para o GND por um instante.
+- **Pino 14**: muda **só ao girar o VOLUME**. Então o VOLUME usa os **pinos 11 e 14** (os dois cursores do
+  potenciômetro sem fim); o pino 10 não é o segundo cursor, como se pensava.
+- **Pino 16**: muda **só ao girar o SOURCE**. Então o SOURCE usa os **pinos 15 e 16**: um encoder comum, com os
+  dois contatos (A e B) em pinos separados. O Pico consegue imitá-lo puxando os dois pinos para o GND na ordem certa.
+- **Pino 21**: nenhum botão nem giro muda o valor.
