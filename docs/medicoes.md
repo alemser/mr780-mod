@@ -79,3 +79,7 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - **SOURCE**: o **pino 15** muda de valor ao girar o SOURCE. O **pino 9** tinha o mesmo valor do 15 (10,4 kΩ): é o
   candidato ao segundo contato. Falta saber se o SOURCE tem cliques (encoder ou chave) ou gira liso
   (potenciômetro sem fim, como o VOLUME).
+- O SOURCE **tem cliques**, e o **pino 9 não muda** ao girá-lo: o SOURCE usa só o pino 15. Hipótese: um encoder
+  cujos dois contatos passam por resistores diferentes até o mesmo pino, e o microcontrolador lê o valor (cada
+  combinação dá uma resistência). Nesse caso, os valores se repetem num ciclo de ~4 cliques. A conferir anotando o
+  valor de cada clique. O pino 9 fica sem função conhecida.
