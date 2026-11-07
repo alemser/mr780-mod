@@ -19,7 +19,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 3 | não | 8,62 | | | | |
 | 4 | não | 6,98 | | | | |
 | 5 | **sim** | 0 | | | | |
-| 6 | não | 0 (?) | | | | |
+| 6 | não | 4,5 | | | | |
 | 7 | não | 3,00 | | | | |
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
@@ -51,7 +51,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 Ponta preta no PHONO GROUND, multímetro em Ω (valores em kΩ, a confirmar). Valores na tabela acima. São medidas com
 tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, não como valor exato.
 
-- **Pino 6 deu 0, mas não bipou com o GND antes.** Conferir.
+- Pino 6: a primeira leitura deu 0 (engano); medido de novo, 4,5.
 - Pino 13: 0,1 kΩ (100 Ω), bem mais baixo que os outros: candidato a alimentação ou a um LED.
 - Pinos 7 (3,00) e 18 (3,66): mais baixos que os de sinal: candidatos a alimentação (5 V, 3,3 V).
 - Grupos de valores iguais (circuitos parecidos):
@@ -59,4 +59,4 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   - 10 e 11: 5,5 (par: pode ser um encoder, A e B)
   - 9 e 15: 10,4
   - 12, 14, 16 e 21: 8,74 (quatro iguais: botões ou dados)
-- Sozinhos: 1 (13,53), 4 (6,98), 8 (6,0).
+- Sozinhos: 1 (13,53), 4 (6,98), 6 (4,5), 8 (6,0).
