@@ -129,5 +129,5 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   por resistores em série, como os dos botões, o bip (que só soa abaixo de ~50 Ω) não liga mesmo sendo encoder.
   Fica para a tensão com o amp ligado ou para o analisador lógico. O que se sabe: o VOLUME mexe nos pinos 13 e 14
   (e no 11, que é o DIM).
-- Apertando pela frente, em Ω no pino 8: o **►►** faz o valor variar. Provável ►► = pino 8 (a confirmar se "despenca"
+- Apertando pela frente, em Ω no pino 8: o **►►** leva o valor de **8 para 6 kΩ**. Provável ►► = pino 8 (queda pequena, a confirmar se nenhum outro pino cai mais;
   ou só oscila, porque antes o ◄◄ também mexia um pouco no 8).
