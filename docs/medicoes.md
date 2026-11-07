@@ -42,3 +42,4 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 
 - Ponta preta no terminal **PHONO GROUND** da traseira (que é o chassi). Bipam com ele: **pinos 5, 17, 19 e 20**.
 - Os outros 17 não bipam.
+- O bip dos 4 é contínuo: são GND de verdade, não capacitor carregando.
