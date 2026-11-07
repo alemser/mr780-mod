@@ -20,12 +20,12 @@ multímetro e capturar com o analisador lógico (`docs/plano.md`).
 |---|---|---|
 | Nomes próprios nas entradas ("TUNER" vira "Rega Planar 2") | Sim | O MR 780 tem 15 fontes: PHONO, CD, DVD, AUX 1/2, TAPE, LINE IN, FM, DAB, OPT 1/2, COAX 1/2, USB, BT |
 | Estado do amp na rede (`/state`, `/device`) | Sim | Mesmo contrato da app Amp Link (repositório `amp-link`) |
-| Comandar pelo Wi-Fi: códigos do controle remoto direto na linha do IR | Sim | Falta descobrir o protocolo do controle remoto |
+| Comandar pelo Wi-Fi: códigos do controle remoto direto na linha do IR | Sim | Por fio, sem Broadlink. Mais os botões do painel (DIRECT, DIM), que o controle remoto não tem |
 | Ligar o amp a partir do standby | Sim | No MR 780 o amp aquece as válvulas por ~30 s ao ligar |
 | VU meter no display enquanto toca | Provável | 2×16 como no SP103; depende de o controlador do VFD aceitar caracteres desenhados |
 | Telas de informação (agulha, qualidade do Bluetooth) | Sim | Mesmo tamanho de tela do SP103 |
-| Ajustar grave, agudo e balanço pelo Wi-Fi | Não | No MR 780 são botões giratórios |
-| Alimentação pelo próprio amp, também em standby | A medir | Procurar um 5 V ou 3,3 V que fique ligado em standby |
+| Ajustar grave e agudo pelo Wi-Fi | Difícil | Botões giratórios, provavelmente analógicos. O DIRECT (liga e desliga o tom) é viável |
+| Alimentação pelo próprio amp, também em standby | A medir | O Pico pelo `D5V`. Novo: um Pi Zero 2 WH dentro, por um conversor DC-DC na linha `VCC` (sem transformador) |
 
 Tudo isto está detalhado em `docs/plano.md`.
 
