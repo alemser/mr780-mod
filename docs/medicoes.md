@@ -24,10 +24,10 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | Botão ◄◄ |
-| 11 | não | 5,5 | | | | VOLUME, primeiro cursor (varia 5–10 kΩ ao girar) |
+| 11 | não | 5,5 | | | | Botão DIM (variou com o VOLUME: eco? conferir) |
 | 12 | não | 8,74 | | | | Botão DIRECT (vai a ~0 apertado) |
-| 13 | não | 0,1 | | | | |
-| 14 | não | 8,74 | | | | VOLUME, segundo cursor |
+| 13 | não | 0,1 | | | | VOLUME (contato?) |
+| 14 | não | 8,74 | | | | VOLUME (contato) |
 | 15 | não | 10,42 | | | | SOURCE, contato A |
 | 16 | não | 8,74 | | | | SOURCE, contato B |
 | 17 | **sim** | 0 | | | | |
@@ -118,6 +118,10 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - Em Ω, do lado de sinal do **◄◄** até o flat: o **pino 10** dá bem baixo. ◄◄ = pino 10.
 - ON/STBY no 7 e ◄◄ no 10: **cada botão tem o seu pino** (com um resistor em série), não uma escada única.
 - ►► e MONO: difíceis de alcançar (capa de borracha por cima).
-- A medida "MONO dá baixo no pino 11" foi feita num componente de **3 perninhas**. Um botão tem 4. Três perninhas em
-  fila é um potenciômetro ou encoder, e o pino 11 é o cursor do VOLUME: provavelmente era o potenciômetro do VOLUME
-  (olhando por trás, esquerda e direita ficam invertidas). Não conta como MONO.
+- **Correção do dono:** onde se leu "MONO dá baixo no pino 11", era o **DIM**. O DIM tem **3 perninhas em triângulo**
+  (não em fila). Então **DIM = pino 11**, pelo lado de sinal do botão.
+- **Conflito a resolver:** o pino 11 também variou bastante ao girar o VOLUME. Hipótese nova: o VOLUME é um **encoder
+  sem cliques** (gira liso, mas liga e desliga contatos), nos **pinos 13 e 14**: o 14 mudou só com o VOLUME, o 13
+  também mudou com o VOLUME, e o 13 deu 0,1 kΩ parado (um contato do encoder que estava fechado naquela posição). A
+  variação no 11 seria eco. Teste: bip no pino 13 (e depois no 14), girando o VOLUME devagar: se o bip liga e desliga,
+  é contato de encoder.
