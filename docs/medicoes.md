@@ -125,3 +125,7 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   também mudou com o VOLUME, e o 13 deu 0,1 kΩ parado (um contato do encoder que estava fechado naquela posição). A
   variação no 11 seria eco. Teste: bip no pino 13 (e depois no 14), girando o VOLUME devagar: se o bip liga e desliga,
   é contato de encoder.
+- Bip girando o VOLUME devagar: **nunca bipa** (pinos 11, 13 e 14). Não desempata: se os contatos do VOLUME passam
+  por resistores em série, como os dos botões, o bip (que só soa abaixo de ~50 Ω) não liga mesmo sendo encoder.
+  Fica para a tensão com o amp ligado ou para o analisador lógico. O que se sabe: o VOLUME mexe nos pinos 13 e 14
+  (e no 11, que é o DIM).
