@@ -99,3 +99,12 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - **Pino 16**: muda **só ao girar o SOURCE**. Então o SOURCE usa os **pinos 15 e 16**: um encoder comum, com os
   dois contatos (A e B) em pinos separados. O Pico consegue imitá-lo puxando os dois pinos para o GND na ordem certa.
 - **Pino 21**: nenhum botão nem giro muda o valor.
+- Outros botões (variações mais fracas que a do DIRECT, ambíguas):
+  - pino 8: muda pouco, mas dá para perceber, com ◄◄ e com ►►;
+  - pino 9: MONO;
+  - pino 10: ◄◄ e MONO;
+  - pino 11 (cursor do VOLUME): MONO e ►►;
+  - pino 13: muda ao girar o VOLUME.
+  Um botão mexendo em vários pinos, e pouco, indica que o multímetro está medindo "por tabela" através dos outros
+  componentes da placa. Para saber o pino de cada botão com certeza: continuidade direta da perninha do botão até o
+  pino do flat.
