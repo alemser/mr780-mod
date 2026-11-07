@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Ambiente Python local (mpremote)
+.venv/
+
+# Manual oficial da Magnat: tem direitos autorais, fica só na cópia local
+docs/manual/
+
+# Nome e senha do Wi-Fi: só no computador e no Pico, nunca no GitHub
+firmware/secrets.py
