@@ -134,3 +134,9 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - Apertando pela frente, em Ω no pino 9: o **MONO** leva o valor de **10 para 7 kΩ ou menos**. MONO = pino 9. A queda
   parecida com a do ►► no pino 8 reforça que esses botões têm um resistor em série, e ►► = pino 8.
 - **Sobram os pinos 1, 2, 3, 4, 6, 18 e 21**: receptor do controle remoto, dados do VFD e alimentação.
+
+### 2026-11-07, amp fora da tomada, receptor do controle remoto
+
+- O receptor fica numa plaquinha separada, entre o VOLUME e o DIRECT, ligada por um cabinho à placa do display.
+- **Perninha do meio = GND.** É a pinagem típica dos receptores de 38 kHz como o VS1838B (sinal, GND, alimentação):
+  então uma das pontas é o sinal e a outra a alimentação.
