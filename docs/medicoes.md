@@ -1,6 +1,47 @@
 # Medições
 
-Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude anota.
+Quem mede é o dono; o Claude anota. O **resumo** abaixo é o que vale; o **registro** guarda as leituras na ordem em
+que foram feitas, e algumas hipóteses dele foram corrigidas depois (o resumo diz quais).
+
+## Resumo (fim de 2026-11-07)
+
+Tudo medido com o amp **fora da tomada**, multímetro com a ponta preta no PHONO GROUND (chassi). Valores em kΩ.
+
+| Pino | O que é | Certeza |
+|---|---|---|
+| 5, 17, 19, 20 | GND | Certo (bip contínuo, ligados entre si) |
+| 7 | Botão ON/STBY | Certo (perninha do botão até o pino, em Ω) |
+| 8 | Botão ►► | Provável (cai de 8 para 6 apertando) |
+| 9 | Botão MONO | Provável (cai de 10 para 7 apertando) |
+| 10 | Botão ◄◄ | Certo (perninha do botão até o pino) |
+| 11 | Botão DIM | Certo (perninha do botão até o pino); também variou com o VOLUME, provavelmente eco |
+| 12 | Botão DIRECT | Certo (vai a ~0 apertado: sem resistor em série) |
+| 13, 14 | VOLUME | Os dois mudam ao girar. Potenciômetro sem fim ou encoder sem cliques: fica para o analisador |
+| 15, 16 | SOURCE (encoder com cliques, contatos A e B) | Certo |
+| 21 | Receptor do controle remoto, perninha 1: **sinal** | Provável (bip direto com a perninha) |
+| 1, 2, 3, 4, 6, 18 | A descobrir: alimentação da lógica, alimentação do receptor e os dados do VFD | — |
+
+O que isto quer dizer para o projeto:
+
+- **Todos os botões e os dois botões giratórios passam pelo flat.** O Pico, ligado só nele, pode ler e "apertar"
+  tudo, inclusive o DIRECT (que o controle remoto não tem).
+- Os botões, fora o DIRECT, têm um **resistor em série** (centenas de Ω a dezenas de kΩ); **cada botão tem o seu
+  pino** (não é uma escada única).
+- O **filamento do VFD não passa pelo flat** (nenhum par de pinos bipa entre si): ele vem pelos fios amarelos do
+  transformador direto para a placa do display.
+- Os **dados do VFD** devem estar entre 1, 2, 3, 4, 6 e 18. Os pinos 2 e 3 têm o mesmo valor (8,62): podem ser um par
+  (relógio e dados).
+
+Em aberto:
+
+1. **Perninha 3 do receptor** (a da direita), a alimentação dele: já se sabe que não vai para 1–3 nem 7–17; falta
+   medir nos pinos 4, 6, 18 e 21. E falta anotar se o receptor foi olhado pela frente (bolinha virada para quem olha) ou
+   por trás.
+2. **Pino 1 do flat**: confirmar qual ponta é (marca branca na placa ou pelo CN8).
+3. Confirmar que o multímetro estava em kΩ.
+4. **Com o amp na tomada**: tensões dos pinos 1, 2, 3, 4, 6, 18 e 21, em standby e ligado. No flat, só com a extensão
+   de 22P (passo de 1,0 mm é estreito demais para a ponta com o amp ligado). Antes disso, com segurança: o conector de
+   força da placa principal (`D5V`, `VCC`) e os fios `APD`, `SYS` e `POW/OF`.
 
 ## Regra da numeração do cabo flat
 
@@ -20,14 +61,14 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 4 | não | 6,98 | | | | |
 | 5 | **sim** | 0 | | | | |
 | 6 | não | 4,5 | | | | |
-| 7 | não | 3,00 | | | | Botão ON/STBY (talvez escada de botões) |
-| 8 | não | 6,0 | | | | Botão ►► |
-| 9 | não | 10,45 | | | | Botão MONO |
+| 7 | não | 3,00 | | | | Botão ON/STBY |
+| 8 | não | 6,0 | | | | Botão ►► (provável) |
+| 9 | não | 10,45 | | | | Botão MONO (provável) |
 | 10 | não | 5,5 | | | | Botão ◄◄ |
-| 11 | não | 5,5 | | | | Botão DIM (variou com o VOLUME: eco? conferir) |
+| 11 | não | 5,5 | | | | Botão DIM (também variou com o VOLUME: eco) |
 | 12 | não | 8,74 | | | | Botão DIRECT (vai a ~0 apertado) |
-| 13 | não | 0,1 | | | | VOLUME (contato?) |
-| 14 | não | 8,74 | | | | VOLUME (contato) |
+| 13 | não | 0,1 | | | | VOLUME |
+| 14 | não | 8,74 | | | | VOLUME |
 | 15 | não | 10,42 | | | | SOURCE, contato A |
 | 16 | não | 8,74 | | | | SOURCE, contato B |
 | 17 | **sim** | 0 | | | | |
@@ -44,9 +85,12 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 - Os outros 17 não bipam.
 - O bip dos 4 é contínuo: são GND de verdade, não capacitor carregando.
 - Os pinos 5, 17, 19 e 20 bipam entre si (esperado: são todos GND).
-- Entre os outros 17 pinos (1–4, 6–16, 18, 21), nenhum par bipa. Então o filamento do VFD não passa pelo flat: deve vir direto pelos fios amarelos do transformador para a placa do display.
+- Entre os outros 17 pinos (1–4, 6–16, 18, 21), nenhum par bipa. Então o filamento do VFD não passa pelo flat: deve
+  vir direto pelos fios amarelos do transformador para a placa do display.
 
 ### 2026-11-07, amp fora da tomada, resistência até o GND
+
+Os palpites desta parte (alimentação no 7 e no 13, par 10/11) foram desmentidos depois: ver o resumo.
 
 Ponta preta no PHONO GROUND, multímetro em Ω (valores em kΩ, a confirmar). Valores na tabela acima. São medidas com
 tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, não como valor exato.
@@ -62,6 +106,8 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - Sozinhos: 1 (13,53), 4 (6,98), 6 (4,5), 8 (6,0).
 
 ### 2026-11-07, amp fora da tomada, girando os botões (Ω até o GND)
+
+Superado depois: o VOLUME é nos pinos 13 e 14 (não 11 e 10) e o SOURCE nos 15 e 16 (não só no 15).
 
 - **VOLUME**: o **pino 11** varia de ~10 até ~5 kΩ, passando pelos valores do meio, enquanto se gira. Mudança
   gradual, não saltos de clique: parece um **potenciômetro** lido pelo microcontrolador (o pino 11 é o cursor), e
@@ -129,8 +175,8 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   por resistores em série, como os dos botões, o bip (que só soa abaixo de ~50 Ω) não liga mesmo sendo encoder.
   Fica para a tensão com o amp ligado ou para o analisador lógico. O que se sabe: o VOLUME mexe nos pinos 13 e 14
   (e no 11, que é o DIM).
-- Apertando pela frente, em Ω no pino 8: o **►►** leva o valor de **8 para 6 kΩ**. Provável ►► = pino 8 (queda pequena, a confirmar se nenhum outro pino cai mais;
-  ou só oscila, porque antes o ◄◄ também mexia um pouco no 8).
+- Apertando pela frente, em Ω no pino 8: o **►►** leva o valor de **8 para 6 kΩ**. Provável ►► = pino 8 (queda pequena; a
+  conferir se nenhum outro pino cai mais com o ►► apertado).
 - Apertando pela frente, em Ω no pino 9: o **MONO** leva o valor de **10 para 7 kΩ ou menos**. MONO = pino 9. A queda
   parecida com a do ►► no pino 8 reforça que esses botões têm um resistor em série, e ►► = pino 8.
 - **Sobram os pinos 1, 2, 3, 4, 6, 18 e 21**: receptor do controle remoto, dados do VFD e alimentação.

@@ -95,6 +95,10 @@ por dentro (precisa de um ADC I2S, como o PCM1808).
 
 ## Passo 2: multímetro
 
+**Fora da tomada: quase todo feito em 2026-11-07** (`docs/medicoes.md`). Falta o item 2 e os itens 3 a 5, que são com o
+amp ligado. Os itens 4 e 6 já estão respondidos: o receptor do controle remoto vai ao pino 21, e cada botão tem o seu
+pino com um resistor em série.
+
 1. Amp fora da tomada: continuidade de cada via do flat com o GND.
 2. Amp **em standby** e depois **ligado**: tensão de cada via do flat contra o GND. Anotar numa tabela de 21 linhas.
    Isso separa as vias de lógica (0 V, 3,3 V ou 5 V) das de tensão alta.

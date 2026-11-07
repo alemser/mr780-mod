@@ -11,8 +11,9 @@ VU meter e telas de informação.
 
 Início, na **fase 1: só ler o estado** (o que vai para o display, ligado ou standby), sem cortar nada. O display é um
 **VFD de matriz de pontos, 2 linhas × 16 caracteres**, com o controlador dentro do vidro, ligado à placa principal
-por um cabo flat de 21 vias e passo de 1,0 mm (`docs/pesquisa-display.md`). Próximo passo: medir as 21 vias com o
-multímetro e capturar com o analisador lógico (`docs/plano.md`).
+por um cabo flat de 21 vias e passo de 1,0 mm (`docs/pesquisa-display.md`). Em 2026-11-07, com o multímetro e o amp
+fora da tomada, foram mapeados no flat os GND, todos os botões, o VOLUME, o SOURCE e o sinal do controle remoto
+(`docs/medicoes.md`). Próximo passo: as tensões com o amp ligado, e depois o analisador lógico (`docs/plano.md`).
 
 ## O que vem do SP103
 
