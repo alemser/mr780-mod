@@ -28,7 +28,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 12 | não | 8,74 | | | | |
 | 13 | não | 0,1 | | | | |
 | 14 | não | 8,74 | | | | |
-| 15 | não | 10,42 | | | | |
+| 15 | não | 10,42 | | | | SOURCE (muda ao girar) |
 | 16 | não | 8,74 | | | | |
 | 17 | **sim** | 0 | | | | |
 | 18 | não | 3,66 | | | | |
@@ -76,3 +76,6 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   kΩ) é o candidato ao segundo. Conferir girando com a ponta no pino 10.
 - Para o Pico: comandar o volume pelo código do controle remoto por fio é o caminho simples. Imitar o potenciômetro
   sem fim (duas tensões analógicas) é possível, mas desnecessário.
+- **SOURCE**: o **pino 15** muda de valor ao girar o SOURCE. O **pino 9** tinha o mesmo valor do 15 (10,4 kΩ): é o
+  candidato ao segundo contato. Falta saber se o SOURCE tem cliques (encoder ou chave) ou gira liso
+  (potenciômetro sem fim, como o VOLUME).
