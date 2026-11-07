@@ -44,3 +44,4 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 - Os outros 17 não bipam.
 - O bip dos 4 é contínuo: são GND de verdade, não capacitor carregando.
 - Os pinos 5, 17, 19 e 20 bipam entre si (esperado: são todos GND).
+- Entre os outros 17 pinos (1–4, 6–16, 18, 21), nenhum par bipa. Então o filamento do VFD não passa pelo flat: deve vir direto pelos fios amarelos do transformador para a placa do display.
