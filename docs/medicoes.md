@@ -20,7 +20,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 4 | não | 6,98 | | | | |
 | 5 | **sim** | 0 | | | | |
 | 6 | não | 4,5 | | | | |
-| 7 | não | 3,00 | | | | |
+| 7 | não | 3,00 | | | | Botão ON/STBY (talvez escada de botões) |
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | |
@@ -112,3 +112,6 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   outro lado de cada botão não bipa com nenhum pino. Então os botões do painel (fora o DIRECT) **passam por resistores**
   antes do flat: provavelmente uma escada de resistores lida pelo microcontrolador, como sugerem os resistores R32–R35
   ao lado dos botões K2–K4 na placa do display.
+- Em Ω, do lado de sinal do **ON/STBY** até o flat: o **pino 7** dá um valor bem baixo. O ON/STBY chega ao pino 7
+  (por um resistor pequeno). O pino 7 deixa de ser candidato a alimentação: é a linha de pelo menos um botão (talvez a
+  escada inteira).
