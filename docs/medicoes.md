@@ -21,8 +21,8 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 5 | **sim** | 0 | | | | |
 | 6 | não | 4,5 | | | | |
 | 7 | não | 3,00 | | | | Botão ON/STBY (talvez escada de botões) |
-| 8 | não | 6,0 | | | | Botão ►► (provável) |
-| 9 | não | 10,45 | | | | |
+| 8 | não | 6,0 | | | | Botão ►► |
+| 9 | não | 10,45 | | | | Botão MONO |
 | 10 | não | 5,5 | | | | Botão ◄◄ |
 | 11 | não | 5,5 | | | | Botão DIM (variou com o VOLUME: eco? conferir) |
 | 12 | não | 8,74 | | | | Botão DIRECT (vai a ~0 apertado) |
@@ -131,3 +131,6 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   (e no 11, que é o DIM).
 - Apertando pela frente, em Ω no pino 8: o **►►** leva o valor de **8 para 6 kΩ**. Provável ►► = pino 8 (queda pequena, a confirmar se nenhum outro pino cai mais;
   ou só oscila, porque antes o ◄◄ também mexia um pouco no 8).
+- Apertando pela frente, em Ω no pino 9: o **MONO** leva o valor de **10 para 7 kΩ ou menos**. MONO = pino 9. A queda
+  parecida com a do ►► no pino 8 reforça que esses botões têm um resistor em série, e ►► = pino 8.
+- **Sobram os pinos 1, 2, 3, 4, 6, 18 e 21**: receptor do controle remoto, dados do VFD e alimentação.
