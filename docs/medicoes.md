@@ -23,7 +23,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 7 | não | 3,00 | | | | Botão ON/STBY (talvez escada de botões) |
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
-| 10 | não | 5,5 | | | | |
+| 10 | não | 5,5 | | | | Botão ◄◄ |
 | 11 | não | 5,5 | | | | VOLUME, primeiro cursor (varia 5–10 kΩ ao girar) |
 | 12 | não | 8,74 | | | | Botão DIRECT (vai a ~0 apertado) |
 | 13 | não | 0,1 | | | | |
@@ -115,3 +115,9 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - Em Ω, do lado de sinal do **ON/STBY** até o flat: o **pino 7** dá um valor bem baixo. O ON/STBY chega ao pino 7
   (por um resistor pequeno). O pino 7 deixa de ser candidato a alimentação: é a linha de pelo menos um botão (talvez a
   escada inteira).
+- Em Ω, do lado de sinal do **◄◄** até o flat: o **pino 10** dá bem baixo. ◄◄ = pino 10.
+- ON/STBY no 7 e ◄◄ no 10: **cada botão tem o seu pino** (com um resistor em série), não uma escada única.
+- ►► e MONO: difíceis de alcançar (capa de borracha por cima).
+- A medida "MONO dá baixo no pino 11" foi feita num componente de **3 perninhas**. Um botão tem 4. Três perninhas em
+  fila é um potenciômetro ou encoder, e o pino 11 é o cursor do VOLUME: provavelmente era o potenciômetro do VOLUME
+  (olhando por trás, esquerda e direita ficam invertidas). Não conta como MONO.
