@@ -108,3 +108,7 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   Um botão mexendo em vários pinos, e pouco, indica que o multímetro está medindo "por tabela" através dos outros
   componentes da placa. Para saber o pino de cada botão com certeza: continuidade direta da perninha do botão até o
   pino do flat.
+- Continuidade direta das perninhas dos botões até o flat: **só o lado GND do ON/STBY bipa (com o pino 5)**. O
+  outro lado de cada botão não bipa com nenhum pino. Então os botões do painel (fora o DIRECT) **passam por resistores**
+  antes do flat: provavelmente uma escada de resistores lida pelo microcontrolador, como sugerem os resistores R32–R35
+  ao lado dos botões K2–K4 na placa do display.
