@@ -24,7 +24,7 @@ Fotos em `docs/img/`.
 
 ### A ligação do display com a placa principal
 
-- Um **cabo flat (FFC)** vai da placa do display até a placa principal (conector CN5, perto do microcontrolador).
+- Um **cabo flat (FFC)** vai da placa do display até a placa principal (conector CN8, perto do microcontrolador). **21 vias, passo de 1,0 mm** (medido em 2026-10-30).
   É por ele que passam os fios do VFD e, provavelmente, os botões e o receptor do controle remoto.
 - Um par de fios amarelos sai do transformador e vai até a placa do display: deve ser a alimentação do filamento
   ou da fonte do VFD (corrente alternada de baixa tensão). Não mexer.
@@ -32,9 +32,9 @@ Fotos em `docs/img/`.
 ### A placa principal (`placa-principal-1.jpg`, `placa-principal-2.jpg`)
 
 - Placa `MR780_Main_PCB`, P/N `0021-0100-2000`, de 2021-12-21.
-- **Microcontrolador principal**: um chip quadrado de 64 pernas (LQFP-64) perto do cabo flat, com um cristal de
+- **Microcontrolador principal (U17)**: um chip quadrado de 64 pernas (LQFP-64) perto do cabo flat, com um cristal de
   25 MHz ao lado. A marca não dá para ler nas fotos: precisa de foto de perto.
-- Um chip de 20 pernas (U15) entre o microcontrolador e o cabo flat: pode ser um conversor de nível (3,3 V ↔ 5 V)
+- Um chip SOIC-16 (U15) entre o microcontrolador e o cabo flat: pode ser um conversor de nível (3,3 V ↔ 5 V)
   para o display. Precisa de foto de perto.
 - **DAC Wolfson WM8740** (confirma o boato do fórum).
 - **XMOS** (a entrada USB de computador).

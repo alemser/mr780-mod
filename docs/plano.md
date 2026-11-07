@@ -1,75 +1,92 @@
 # Plano
 
-O caminho é o mesmo do SP103: primeiro olhar e medir, depois capturar, só então soldar.
+O caminho é o mesmo do SP103: primeiro olhar e medir, depois capturar, só então soldar. As decisões de 2026-10-28 a
+2026-10-30 estão em `docs/historico/brief-2026-10.md`; este documento é o plano em vigor.
 
-## Segurança antes de abrir
+## Segurança
 
 - O MR 780 é ligado direto na tomada (230 V) e tem válvulas: **dentro há tensões altas**, também alguns minutos depois
   de desligar (capacitores). Sempre: chave traseira em OFF, cabo fora da tomada, esperar uns 5 minutos.
-- Não encostar na placa da fonte nem na parte das válvulas. A placa frontal (display e botões) é baixa tensão.
-- Abrir o amp tira a garantia (dito em fórum).
+- Não encostar na fonte (`MR780-SMPS-D`) nem na placa das válvulas.
+- A placa do display tem a fonte do VFD (Q1, DW1, D2–D4, eletrolíticos de 50 V): **dezenas de volts**. Ligar fios só
+  nas vias de lógica do cabo flat, e só depois de medir cada uma.
+- O GPIO do Pico é de 3,3 V. Se o barramento do VFD for de 5 V, cada fio passa por um divisor ou conversor de nível.
+- Fios só com o amp fora da tomada.
+
+## Fases (decisão do dono, 2026-10-30)
+
+**Fase 1: ler o estado.** Saber o que vai para o display e se o amp está ligado ou em standby. Um Pico 2 W dentro do
+amp, só escutando o cabo flat. Nada cortado.
+
+**Fase 2: escrever no display.** O Pico no meio das vias de dados do VFD: lê o que a placa principal manda e escreve
+a sua versão no display. As outras vias passam direto. Como o VFD tem fonte própria e (pelas fotos) controlador
+próprio, dá para escrever qualquer texto.
+
+**Fase 3 (se der): Pi Zero 2W dentro do amp**, alimentado pelo Magnat, recebendo o REC OUT por dentro (precisa de um
+ADC I2S, como o PCM1808). A investigar: se os 5 V da placa principal aguentam ~500 mA. A fonte de standby (PN8370) não
+aguenta.
+
+## O cabo flat (medido em 2026-10-30)
+
+- 21 vias, passo de 1,0 mm, ~22 mm de largura.
+- Material escolhido: uma **extensão FFC 22P de 1,0 mm** (existe pronta), com o flat de 21 encostado no pino 1 e a
+  folga do pino 22 calçada com plástico ou kapton. **Testar a continuidade via a via antes de ligar.** Flats de 21P,
+  1,0 mm, ~10 cm, dos dois tipos (A e B), porque não dá para ver de que lado estão os contatos.
+- Para a fase 2: duas extensões, com o Pico entre elas.
+- Os fios do Pico vão soldados na extensão, nunca na placa do Magnat.
 
 ## Passo 1: fotos
 
-**Primeira rodada feita em 2026-11-07** (`docs/img/`, resumo em `pesquisa-display.md`): o display é um VFD de matriz
-de pontos 2×16 com o controlador dentro do vidro, ligado à placa principal por um cabo flat.
+**Feito** (2026-10-30 e 2026-11-07, `docs/img/`, resumo em `pesquisa-display.md`).
 
-**Falta, de perto e com luz:**
+**Ainda falta, de perto e com luz:**
 
-- As pontas do vidro do VFD (esquerda e direita): costuma haver um número de peça pequeno impresso no vidro.
-- O conector do cabo flat **dos dois lados** (placa do display e CN5 na placa principal), para ler o que está escrito
-  ao lado dos pinos e contar os fios.
-- O texto do microcontrolador principal (64 pernas, perto do cabo flat) e do chip U15 (20 pernas, ao lado).
-- A parte direita da placa do display, onde ficam o receptor do controle remoto e o botão DIRECT.
-- O botão de volume por trás.
+- A marca no vidro do VFD (canto direito, parece "CN20-..." ou "CN23"): pode dar o modelo e a pinagem.
+- As legendas dos pinos do flat, dos dois lados (placa do display e a placa principal).
+- O texto do microcontrolador U17 (64 pernas) e do U15 (ao lado do flat).
 
-A lista original, para referência:
+## Passo 2: multímetro
 
-1. A placa frontal inteira, por trás (o lado do display).
-2. O display: o vidro, a borda e o que estiver escrito nele (números de peça, "Noritake", "Futaba", etc.).
-3. Todo chip perto do display: o texto de cima de cada um (com lupa ou zoom).
-4. O cabo ou conector que liga a placa frontal à placa principal: quantos fios, e o que está escrito ao lado de cada
-   pino na placa (VCC, GND, DIN, CLK, STB, RS, E...).
-5. O microcontrolador principal (o maior chip com muitas pernas).
-6. O receptor do controle remoto (componente de 3 pernas atrás de uma janelinha).
-7. O botão de volume por trás: se é um encoder (gira sem fim, com cliques) ou um potenciômetro.
+1. Amp fora da tomada: continuidade de cada via do flat com o GND.
+2. Amp **em standby** e depois **ligado**: tensão de cada via do flat contra o GND. Anotar numa tabela de 21 linhas.
+   Isso separa as vias de lógica (0 V, 3,3 V ou 5 V) das de tensão alta.
+3. Os fios `D+5V`, `APD`, `SYS` e `POW/OF`: qual tem 5 V em standby (para alimentar o Pico) e qual muda ao ligar
+   (para o Pico saber se o amp está ligado).
+4. A saída do receptor do controle remoto (para comandar o amp pelo Wi-Fi, como no SP103).
 
-Coloque as fotos em `docs/img/`. Com elas eu identifico o tipo de display (`pesquisa-display.md`, a tabela dos três
-casos).
+## Passo 3: analisador lógico
 
-## Passo 2: medições com o multímetro (amp ligado em standby e ligado)
+O mesmo Pico com o LogicAnalyzer usado no SP103, nas vias de lógica:
 
-- As tensões no conector da placa frontal, pino por pino, em standby e ligado.
-- Se existe um 5 V ou 3,3 V que fica ligado em standby (para alimentar o Pico, como no SP103).
-- A tensão de saída do receptor do controle remoto (para saber se o Pico pode puxar a linha para 0, como no SP103).
+- Telas: ligar (contagem do aquecimento), volume, cada entrada, DIM, DIRECT, INFO no DAB e no FM, Bluetooth.
+- O controle remoto: cada botão, para o protocolo e os códigos.
 
-## Passo 3: capturas com o analisador lógico
+Decodificar e documentar em `docs/descobertas-protocolo.md`, com as capturas em `captures/`.
 
-- Os fios de dados do display, em várias telas: ligar (aquecimento), trocar de entrada, volume, DIM, INFO no DAB.
-- A linha do receptor do controle remoto, apertando cada botão do controle: dá o protocolo e os códigos.
-
-## Passo 4: decidir a montagem
-
-Depende do Passo 1:
-
-- **VFD serial (o caso provável)**: o Pico escuta os 3 ou 4 fios (relógio, dados, seleção). Para trocar textos, o
-  Pico fica no meio desses fios: o microcontrolador fala com o Pico, e o Pico fala com o VFD. Corta-se só essas
-  trilhas (ou se usa um adaptador no cabo flat), sem dessoldar o vidro. Fica mais simples que no SP103: numa linha
-  serial não existe a pergunta "ocupado?", então não precisa do `busy.py`.
-- Se for paralelo (improvável pelas fotos): o mesmo esquema do SP103.
-
-## Passo 5: o programa
+## Passo 4: o programa (fase 1)
 
 Aproveitar do `sp103-display-proxy` o que não depende do display:
 
-- Wi-Fi, atualização pelo Wi-Fi com volta automática (`ota.py`, `tools/enviar.py`).
-- Servidor de estado e o contrato da app Amp Link (`/state`, `/device`, `/names`, `/control`).
-- Injeção de IR (`ir.py`), com os códigos do controle do MR 780.
-- Ponte do VU (`relay/`), se o display permitir.
+- Wi-Fi e atualização pelo Wi-Fi com volta automática (`ota.py`, `tools/enviar.py`).
+- O estado e o contrato da app Amp Link (`/state`, `/device`, `/names`), com campos novos: fonte DAB/BT/USB, estação,
+  texto do DAB/RDS.
+- Os testes no Mac, usando as capturas reais.
 
-Não copiar agora: copiar quando cada parte for usada, para não carregar código morto.
+Novo: o sniffer do VFD serial (PIO) e o leitor das telas do MR 780.
+
+Lições do SP103 que já valem aqui:
+
+- Sem página web no Pico: a app Android faz esse papel.
+- Evitar conexões longas (`/events`) e respostas grandes: elas travam o Wi-Fi do Pico (lwIP sem memória).
+- Copiar cada parte do SP103 só quando ela for usada, para não carregar código morto.
 
 ## O que a app Amp Link precisa ganhar
 
-O `GET /device` já descreve o aparelho. O MR 780 vai ser um segundo aparelho na mesma app, com a sua lista de
-entradas e sem os ajustes de grave e agudo pelo Wi-Fi (são botões giratórios no MR 780).
+O `GET /device` já descreve o aparelho. O MR 780 vai ser um segundo aparelho na mesma app, com a sua lista de entradas
+e sem ajuste de grave, médio, agudo e balanço (são botões giratórios no MR 780).
+
+## Perguntas em aberto
+
+- O MR 780 também entra no groove-rig (IR pelo Broadlink)?
+- O que mostrar no display na fase 2: os mesmos objetivos do SP103 (nomes, VU, agulha, qualidade do Bluetooth) ou
+  outros?

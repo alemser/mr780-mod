@@ -9,9 +9,10 @@ VU meter e telas de informação.
 
 ## Situação (2026-11-07)
 
-Início. Primeiras fotos feitas (`docs/img/`): o display é um **VFD de matriz de pontos, 2 linhas × 16 caracteres**,
-com o controlador dentro do vidro, ligado à placa principal por um cabo flat (`docs/pesquisa-display.md`). Nada
-medido ainda. Próximo passo: fotos de perto do cabo flat e dos chips, depois medir e capturar (`docs/plano.md`).
+Início, na **fase 1: só ler o estado** (o que vai para o display, ligado ou standby), sem cortar nada. O display é um
+**VFD de matriz de pontos, 2 linhas × 16 caracteres**, com o controlador dentro do vidro, ligado à placa principal
+por um cabo flat de 21 vias e passo de 1,0 mm (`docs/pesquisa-display.md`). Próximo passo: medir as 21 vias com o
+multímetro e capturar com o analisador lógico (`docs/plano.md`).
 
 ## O que vem do SP103
 
@@ -33,7 +34,8 @@ Tudo isto está detalhado em `docs/plano.md`.
 | Documento | Conteúdo |
 |---|---|
 | [`docs/plano.md`](docs/plano.md) | O plano, passo a passo, e as perguntas que as primeiras medições precisam responder |
-| [`docs/pesquisa-display.md`](docs/pesquisa-display.md) | O que se sabe do MR 780 pela web e pelo manual: display, botões, controle remoto, atualização |
+| [`docs/pesquisa-display.md`](docs/pesquisa-display.md) | O que se sabe do MR 780 pela web, pelo manual e pelas fotos: display, placas, botões, controle remoto |
+| [`docs/historico/brief-2026-10.md`](docs/historico/brief-2026-10.md) | O brief de 2026-10-28 a 30: primeiras fotos, medidas do cabo flat e as decisões das fases. Não descreve o estado atual |
 
 O manual oficial fica só na cópia local, em `docs/manual/` (tem direitos autorais, não vai para o GitHub).
 
