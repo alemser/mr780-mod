@@ -34,7 +34,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 18 | não | 3,66 | | | | |
 | 19 | **sim** | 0 | | | | |
 | 20 | **sim** | 0 | | | | |
-| 21 | não | 8,74 | | | | |
+| 21 | não | 8,74 | | | | Receptor do controle remoto, perninha 1 (sinal, provável) |
 
 ## Registro
 
@@ -140,3 +140,6 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
 - O receptor fica numa plaquinha separada, entre o VOLUME e o DIRECT, ligada por um cabinho à placa do display.
 - **Perninha do meio = GND.** É a pinagem típica dos receptores de 38 kHz como o VS1838B (sinal, GND, alimentação):
   então uma das pontas é o sinal e a outra a alimentação.
+- **Perninha 1** (a da esquerda, contando da esquerda para a direita como o dono estava olhando) **bipa com o pino 21**.
+  O pino 21 tinha 8,74 kΩ até o GND e não mudava com nenhum botão: combina com a saída (sinal) de um receptor de IR,
+  que fica parada em nível alto. Candidato forte: **pino 21 = sinal do controle remoto**.
