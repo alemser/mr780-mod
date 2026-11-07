@@ -21,7 +21,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 5 | **sim** | 0 | | | | |
 | 6 | não | 4,5 | | | | |
 | 7 | não | 3,00 | | | | Botão ON/STBY (talvez escada de botões) |
-| 8 | não | 6,0 | | | | |
+| 8 | não | 6,0 | | | | Botão ►► (provável) |
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | Botão ◄◄ |
 | 11 | não | 5,5 | | | | Botão DIM (variou com o VOLUME: eco? conferir) |
@@ -129,3 +129,5 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   por resistores em série, como os dos botões, o bip (que só soa abaixo de ~50 Ω) não liga mesmo sendo encoder.
   Fica para a tensão com o amp ligado ou para o analisador lógico. O que se sabe: o VOLUME mexe nos pinos 13 e 14
   (e no 11, que é o DIM).
+- Apertando pela frente, em Ω no pino 8: o **►►** faz o valor variar. Provável ►► = pino 8 (a confirmar se "despenca"
+  ou só oscila, porque antes o ◄◄ também mexia um pouco no 8).
