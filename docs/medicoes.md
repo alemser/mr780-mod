@@ -24,7 +24,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 8 | não | 6,0 | | | | |
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | |
-| 11 | não | 5,5 | | | | |
+| 11 | não | 5,5 | | | | Cursor do VOLUME (varia 5–10 kΩ ao girar) |
 | 12 | não | 8,74 | | | | |
 | 13 | não | 0,1 | | | | |
 | 14 | não | 8,74 | | | | |
@@ -60,3 +60,12 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   - 9 e 15: 10,4
   - 12, 14, 16 e 21: 8,74 (quatro iguais: botões ou dados)
 - Sozinhos: 1 (13,53), 4 (6,98), 6 (4,5), 8 (6,0).
+
+### 2026-11-07, amp fora da tomada, girando os botões (Ω até o GND)
+
+- **VOLUME**: o **pino 11** varia de ~10 até ~5 kΩ, passando pelos valores do meio, enquanto se gira. Mudança
+  gradual, não saltos de clique: parece um **potenciômetro** lido pelo microcontrolador (o pino 11 é o cursor), e
+  não um encoder. Pode ser um potenciômetro motorizado (que o controle remoto gira): a conferir.
+- **SOURCE**: os pinos 2 e 3 não mudam ao girar o SOURCE (agora deram acima de 12 kΩ, parados). O SOURCE não está
+  nesses pinos; pode estar em outro pino ou vir por outro cabo (as plaquinhas dos botões giratórios têm fios
+  próprios até a placa principal).
