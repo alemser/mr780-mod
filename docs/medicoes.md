@@ -25,7 +25,7 @@ Todas as leituras, na ordem em que foram feitas. Quem mede é o dono; o Claude a
 | 9 | não | 10,45 | | | | |
 | 10 | não | 5,5 | | | | |
 | 11 | não | 5,5 | | | | Cursor do VOLUME (varia 5–10 kΩ ao girar) |
-| 12 | não | 8,74 | | | | |
+| 12 | não | 8,74 | | | | Botão DIRECT |
 | 13 | não | 0,1 | | | | |
 | 14 | não | 8,74 | | | | |
 | 15 | não | 10,42 | | | | SOURCE (muda ao girar) |
@@ -88,3 +88,7 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   para um encoder, e o valor que ele mostra depende de quanto tempo se espera. Num encoder com cliques, parado no
   clique ele costuma dar sempre o mesmo valor; a mudança só acontece entre um clique e outro. Fica para o
   analisador lógico (ou para a tensão do pino 15 com o amp ligado).
+
+### 2026-11-07, amp fora da tomada, apertando os botões (Ω até o GND)
+
+- **Pino 12**: só o **DIRECT** (botão no extremo direito, acima do painel) muda o valor. Os outros botões não.
