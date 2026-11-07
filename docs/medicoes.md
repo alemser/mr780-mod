@@ -83,3 +83,8 @@ tudo ligado na placa (passam pelos chips), então servem para agrupar pinos, nã
   cujos dois contatos passam por resistores diferentes até o mesmo pino, e o microcontrolador lê o valor (cada
   combinação dá uma resistência). Nesse caso, os valores se repetem num ciclo de ~4 cliques. A conferir anotando o
   valor de cada clique. O pino 9 fica sem função conhecida.
+- O SOURCE gira **sem fim**. Clique a clique no pino 15, os valores (kΩ) vieram mais ou menos assim: 10, 5, 4, 3, 2,
+  5, 4, 3, 6, 8, 5, 4, 3, 2, 1… sem um ciclo claro e sem voltar ao 10. **Inconclusivo**: o multímetro é lento demais
+  para um encoder, e o valor que ele mostra depende de quanto tempo se espera. Num encoder com cliques, parado no
+  clique ele costuma dar sempre o mesmo valor; a mudança só acontece entre um clique e outro. Fica para o
+  analisador lógico (ou para a tensão do pino 15 com o amp ligado).
